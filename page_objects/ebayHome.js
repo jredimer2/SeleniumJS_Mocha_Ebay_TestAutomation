@@ -1,6 +1,5 @@
 
-const { Builder, By, Key } = require("selenium-webdriver");
-const assert = require('assert')
+const { By, Key } = require("selenium-webdriver");
 
 
 class ebayHome {
