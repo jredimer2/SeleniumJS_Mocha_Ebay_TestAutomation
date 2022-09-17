@@ -1,7 +1,7 @@
 # SeleniumJS_Mocha_Ebay_TestAutomation
 Test automation using SeleniumJS and Mocha framework
 
-# Setup instructions:
+# Setup instructions
 
 1. In command prompt, type 'npm install'.
 2. To run a test, type 'npm test'
