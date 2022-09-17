@@ -2,7 +2,7 @@
 Test automation using SeleniumJS and Mocha framework
 
 # Github Repository
-[link]https://github.com/jredimer2/SeleniumJS_Mocha_Ebay_TestAutomation
+https://github.com/jredimer2/SeleniumJS_Mocha_Ebay_TestAutomation
 
 # Setup instructions
 
