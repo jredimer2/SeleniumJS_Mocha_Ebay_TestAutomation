@@ -7,8 +7,19 @@ const { ebayProductDetails } = require("../page_objects/ebayProductDetails");
 const { ebayCart } = require("../page_objects/ebayCart");
 const { doesNotMatch } = require('assert');
 
-// This is an end to end test that goes through a number of pages in the purchase process. 
+// Description: This is an end to end test that goes through a number of pages in the purchase process. 
+// It demonstrates advanced Selenium concepts such as: 
+//  - switching tabs
+//  - relative xpath selector to current element (eg., selectFirstItemInEachDropDown())
+//  - adaptive scripts (ie., it still works even if product has multiple selection menus)
+//  - using Selenium to run Javascript (eg., scrolling into view)
+//  - clean Page Object Model (try-catch block handled at test level) 
+//
+// Performance improvement: to make this test run faster, we should use CSS selectors where possible.
+// Usage: You only need to change the searchTerm, and the test should run to completion, even when there are additional selection components.
+//
 const sleep = ms => new Promise(r => setTimeout(r, ms))
+const searchTerm = 'mug'
 
 describe('Test E2E workflow to shopping cart', function () {
     it('Verify item in cart has the correct product Id', async function () {
@@ -21,7 +32,7 @@ describe('Test E2E workflow to shopping cart', function () {
             const cart = new ebayCart(driver);
 
             await ebay.goto("http://ebay.com.au");
-            await ebay.enterSearch("laptop case");
+            await ebay.enterSearch(searchTerm);
 
             // Note: I need to filter for Buy It Now results, as Auction items do not have AddToCart button. 
             await ebay.clickBuyItNowBtn();
