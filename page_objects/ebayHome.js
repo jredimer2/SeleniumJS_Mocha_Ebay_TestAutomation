@@ -1,6 +1,7 @@
 
 const { By, Key } = require("selenium-webdriver");
 
+const sleep = ms => new Promise(r => setTimeout(r, ms))
 
 class ebayHome {
     constructor(driver) {
@@ -29,12 +30,7 @@ class ebayHome {
 
     // index starts with 1 for the first search result
     async getSearchResult(index) {
-        console.log('------------------------------------ tp-1 ------------------------------')
-        const linkItem = await driver.findElement(By.xpath(`//li[contains(@class,'s-item')][${index}]`))
-        console.log('------------------------------------ tp-2 ------------------------------')
-        const anchor = await linkItem.findElement(By.xpath("//a[contains(@class,'item__link')]"))
-        console.log('------------------------------------ tp-3 ------------------------------')
-        return anchor
+        return await driver.findElement(By.xpath(`//ul[contains(@class,'srp-results')]/li[contains(@class,'s-item')][${index}]//a[contains(@class,'item__link')]`))
     }
 
     async clickMyEbay() {
@@ -42,7 +38,7 @@ class ebayHome {
     }
 
     async enterSearch(str) {
-        await (await this.getSearchBar()).sendKeys("Bike", Key.RETURN)
+        await (await this.getSearchBar()).sendKeys(str, Key.RETURN)
     }
 
     async clickBuyItNowBtn() {
@@ -51,9 +47,7 @@ class ebayHome {
 
     // index starts with 1 for the first search result
     async clickSearchResult(index) {
-        console.log('------------------------------------ tp-4 ------------------------------')
         await (await this.getSearchResult(index)).click()
-        console.log('------------------------------------ tp-5 ------------------------------')
     }
 }
 
