@@ -19,7 +19,7 @@ const { doesNotMatch } = require('assert');
 // Usage: You only need to change the searchTerm, and the test should run to completion, even when there are additional selection components.
 //
 const sleep = ms => new Promise(r => setTimeout(r, ms))
-const searchTerm = 'mug'
+const searchTerm = 'laptop case'
 
 describe('Test E2E workflow to shopping cart', function () {
     it('Verify item in cart has the correct product Id', async function () {
