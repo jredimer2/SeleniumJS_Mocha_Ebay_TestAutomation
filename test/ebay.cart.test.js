@@ -13,6 +13,7 @@ const { doesNotMatch } = require('assert');
 //  - relative xpath selector to current element (eg., selectFirstItemInEachDropDown())
 //  - adaptive scripts (ie., it still works even if product has multiple selection menus)
 //  - using Selenium to run Javascript (eg., scrolling into view)
+//  - implicit timeouts
 //  - clean Page Object Model (try-catch block handled at test level) 
 //
 // Performance improvement: to make this test run faster, we should use CSS selectors where possible.
