@@ -19,7 +19,7 @@ const { doesNotMatch } = require('assert');
 // Performance improvement: to make this test run faster, we should use CSS selectors where possible.
 // Usage: You only need to change the searchTerm, and the test should run to completion, even when there are additional selection components.
 //
-const sleep = ms => new Promise(r => setTimeout(r, ms))
+const sleep = ms => new Promise(r => setTimeout(r, ms))  //For debug use only. Usage sleep(int_ms)
 const searchTerm = 'laptop case'
 
 describe('Test E2E workflow to shopping cart', function () {
